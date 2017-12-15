@@ -4,19 +4,12 @@ header.app-header
     .header-item(@click='toggleMenuApp', v-if='!desktop')
       i.material-icons(v-if='!activeMenuApp') menu
       i.material-icons(v-else='') close
-    router-link.header-item.header-item-link(to='/')
-      img(src='~assets/images/logos/cosmos-logo.png', alt='Cosmos Logo')
+    router-link.header-item.header-item-link(to='/') {{ text.zoneName }}
     menu.menu-popup.menu-app(v-if='activeMenuApp || desktop')
       nav.nav-app
-        router-link(to='/intro' @click.native='close') Introduction
-        router-link(to='/dev' @click.native='close') Developers
-        router-link(to='/validators' @click.native='close') Validators
-        router-link(to='/about' @click.native='close',) About
-      nav(v-if='!desktop')
-        a(:href='links.cosmos.blog' @click.native='close' target='_blank') Blog
-    a.header-item(:href='links.cosmos.blog' @click.native='close' target='_blank')
-      i.fa.fa-medium
-      span.label(v-if='desktop') Blog
+        router-link(to='/' @click.native='close') Home
+    a.header-item(href="https://cosmos.network" target="_blank")
+      img(src="~assets/images/logos/cosmos-logo.png")
 </template>
 
 <script>
@@ -25,7 +18,7 @@ import disableScroll from 'disable-scroll'
 export default {
   name: 'app-header',
   computed: {
-    ...mapGetters(['config', 'links'])
+    ...mapGetters(['text'])
   },
   data: () => ({
     activeMenuApp: false,
@@ -69,7 +62,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@require '~@/styles/variables.styl'
+@require '~variables'
 
 .app-header
   position fixed
@@ -88,9 +81,10 @@ export default {
 
   .header-item
     height 3rem
+    width 3rem
     display flex
     align-items center
-    padding 0 1rem
+    justify-content center
 
     color txt
     cursor pointer
@@ -158,7 +152,7 @@ export default {
 
 @media screen and (min-width: 1024px)
   .app-header
-    border-top bw solid app-fg
+    border-top bw solid darken(app-bg, 50%)
     height 3rem + bw
 
     .container
@@ -168,6 +162,9 @@ export default {
         height 3rem + bw
         position relative
         z-index 10
+
+        width auto
+        padding 0 1rem
         &:last-of-type
           justify-content flex-end
 
@@ -175,12 +172,15 @@ export default {
           color bright
           border-color hover
 
+        /*
         &.header-item-link.router-link-exact-active
           background app-fg
           border-color mc
+        */
 
   .menu-popup.menu-app
     display flex
+    display none
     padding 0 1rem
 
     .container

@@ -1,34 +1,20 @@
 <template lang='pug'>
 .section-home.section-home-benefits: .section-home__container
-  .section-home__header Why Use Cosmos?
+  .section-home__header {{ text.benefitsTitle }}
   .section-home__main
     .cosmos-panels
-      .cosmos-panel
-        .cosmos-panel__image
-          img.cosmos-panel__img(src="~assets/images/diagrams/panel-interoperability.png")
+      .cosmos-panel(v-for="i in text.benefits")
+        .cosmos-panel__image: i.material-icons {{ i.icon }}
         .cosmos-panel__text
-          .cosmos-panel__title Interoperability
-          .cosmos-panel__body The Cosmos network is built to allow many independent blockchains — public and private — to communicate and exchange value with one another.
-          router-link.cosmos-panel__action(to="/intro#interoperability") Learn more about interblockchain communication.
-      .cosmos-panel
-        .cosmos-panel__image
-          img.cosmos-panel__img(src="~assets/images/diagrams/panel-scalability.png")
-        .cosmos-panel__text
-          .cosmos-panel__title Scalability
-          .cosmos-panel__body By leveraging interoperability and Tendermint’s Proof-Of-Stake algorithm, Cosmos provides unprecedented levels of scalability for blockchain networks.
-          router-link.cosmos-panel__action(to="/intro#scalability") Learn more about how Tendermint handles scaling.
-      .cosmos-panel
-        .cosmos-panel__image
-          img.cosmos-panel__img(src="~assets/images/diagrams/panel-developer-friendly.png")
-        .cosmos-panel__text
-          .cosmos-panel__title Developer Friendly
-          .cosmos-panel__body Cosmos was designed with developers in mind. Thanks to Tendermint’s Application Blockchain Interface, it’s easy to build blockchains in any programming language. 
-          router-link.cosmos-panel__action(to="/dev") Visit the developer’s page to get started. 
+          .cosmos-panel__title {{ i.title }}
+          .cosmos-panel__body {{ i.body }}
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
-  name: 'section-benefits'
+  name: 'section-benefits',
+  computed: { ...mapGetters(['text']) }
 }
 </script>
 
@@ -64,8 +50,22 @@ export default {
   font-size h2
   font-weight 500
 
+.cosmos-panel__image
+  i.material-icons
+    background link
+    color bright
+    font-size 5rem
+    display flex
+    align-items center
+    justify-content center
+    padding 2rem 0
+    width 100%
+    max-width 22.25rem
+    max-height 8rem
+
 .cosmos-panel__img
   width 100%
+
 
 .cosmos-panel__action
   display block
@@ -104,5 +104,4 @@ export default {
 
   .cosmos-panel__body
     flex 1
-
 </style>

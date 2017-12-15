@@ -2,28 +2,8 @@
 .app-footer
   section-community
   .footbot: .footbot__container
-    .footbot__brandmark
-      img.footbot__img(src="~assets/images/logos/cosmos-brandmark.png")
-    .footbot-menu
-      .footbot-menu__title Cosmos
-      .footbot-menu__items
-        router-link(to="/about").footbot-menu__item About
-        a(href="https://tendermint.com/careers" target="_blank").footbot-menu__item Careers
-        router-link(to="/intro/faq").footbot-menu__item FAQ
-        a(href="https://fundraiser.cosmos.network" target="_blank").footbot-menu__item Fundraiser
-    .footbot-menu
-      .footbot-menu__title Downloads
-      .footbot-menu__items
-        router-link(to="/dev/whitepaper").footbot-menu__item Whitepaper
-        router-link(to="/about/assets").footbot-menu__item Visual Assets
-    .footbot-menu
-      .footbot-menu__title Cosmos
-      .footbot-menu__items
-        a(href="https://github.com/cosmos" target="_blank").footbot-menu__item Cosmos GitHub
-        a(href="https://github.com/cosmos/cosmos-sdk" target="_blank").footbot-menu__item Cosmos SDK
-        a(href="https://github.com/cosmos/cosmos-ui" target="_blank").footbot-menu__item Cosmos UI
-        a(href="https://tendermint.com" target="_blank").footbot-menu__item Tendermint
-        router-link(to="/validators").footbot-menu__item Validators
+    .footbot__text &copy; {{ new Date().getFullYear() }} {{ text.zoneName }}
+    a.footbot__text(href="https://cosmos.network" target="_blank") A Cosmos Zone
 </template>
 
 <script>
@@ -35,7 +15,7 @@ export default {
     SectionCommunity
   },
   computed: {
-    ...mapGetters(['links'])
+    ...mapGetters(['text'])
   }
 }
 </script>
@@ -56,9 +36,9 @@ export default {
   max-width 1024px
   margin 0 auto
 
-.footbot__brandmark
-  padding 0
-  flex 0 0 50%
+.footbot__text
+  line-height 3rem
+  padding 0 1rem
 
 .footbot__img
   max-width 50vw
@@ -82,8 +62,12 @@ export default {
   .footbot__container
     padding 1.5rem 0
 
-  .footbot__brandmark
+  .footbot__text
     flex 0 0 50%
+    padding 0 2rem
+
+  a.footbot__text
+    text-align right
     
   .footbot__img
     max-width 14rem

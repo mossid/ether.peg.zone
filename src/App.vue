@@ -3,13 +3,11 @@
   app-header
   #app-content: router-view
   app-footer
-  notifications(color='hsl(208,100%,25%)' :notifications='notifications')
 </template>
 
 <script>
 import AppHeader from 'common/AppHeader.vue'
 import AppFooter from 'common/AppFooter.vue'
-import Notifications from '@nylira/vue-notifications'
 import store from './store/index.js'
 import { mapGetters } from 'vuex'
 
@@ -17,30 +15,27 @@ export default {
   name: 'app',
   components: {
     AppHeader,
-    AppFooter,
-    Notifications
+    AppFooter
   },
-  computed: {
-    ...mapGetters(['notifications'])
-  },
+  computed: { ...mapGetters(['config', 'text']) },
   head: {
     meta () {
       return [
-        { n: 'description', c: 'Cosmos is a project with an ambitious mission: To create a network of distributed ledgers that will solve long-standing problems in the cryptocurrency community.' },
+        { n: 'description', c: this.text.siteDescription },
 
         { n: 'twitter:card', c: 'summary' },
-        { n: 'twitter:site', c: '@cosmos' },
-        { n: 'twitter:title', c: 'Cosmos - Internet of Blockchains' },
-        { n: 'twitter:description', c: 'Cosmos is a project with an ambitious mission: To create a network of distributed ledgers that will solve long-standing problems in the cryptocurrency community.' },
-        { n: 'twitter:creator', c: '@cosmos' },
+        { n: 'twitter:site', c: this.config.ids.twitter },
+        { n: 'twitter:title', c: this.text.siteTitle },
+        { n: 'twitter:description', c: this.text.siteDescription },
+        { n: 'twitter:creator', c: this.config.ids.twitter },
         { p: 'twitter:image', c: require('./assets/favicon/apple-icon-180x180.png') },
 
-        { p: 'og:title', c: 'Cosmos - Internet of Blockchains' },
+        { p: 'og:title', c: this.text.siteTitle },
         { p: 'og:type', c: 'website' },
-        { p: 'og:url', c: window.location.href },
+        { p: 'og:url', c: this.config.urls.self },
         { p: 'og:image', c: require('./assets/favicon/apple-icon-180x180.png') },
-        { p: 'og:description', c: 'Cosmos is a project with an ambitious mission: To create a network of distributed ledgers that will solve long-standing problems in the cryptocurrency community.' },
-        { p: 'og:site_name', c: 'Cosmos - Internet of Blockchains' },
+        { p: 'og:description', c: this.text.siteDescription },
+        { p: 'og:site_name', c: this.textsiteTitle },
         { p: 'fb:admins', c: '' },
 
         { n: 'msapplication-TileColor', c: '#ffffff' },

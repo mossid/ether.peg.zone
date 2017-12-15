@@ -1,7 +1,7 @@
 <template lang="pug">
 .section-home: .section-home__container
-  .section-home__header Join the Cosmos network!
-  .app-footer__row.app-footer__row-actions
+  .section-home__header {{ text.communityTitle }}
+  // .app-footer__row.app-footer__row-actions
     part(title="Get Started")
       btn(
         type="link"
@@ -11,48 +11,18 @@
         value="Read Introduction")
     part(title="Get Newsletter"): form-email-signup
   .app-footer__row
-    part(title='Discuss & Chat'): .community-cards
-      card-community(
-        dt='Community Chat'
-        dd='Join `cosmosproject` on Telegram'
-        icon='telegram'
-        :anchor='links.cosmos.community.telegram')
-      card-community(
-        dt='Developer Chat'
-        dd='Join #cosmos:matrix.org with Riot'
-        icon='comments-o'
-        :anchor='links.cosmos.community.matrix')
-      card-community(
-        dt='Forum'
-        dd='Discuss the latest developer updates'
-        icon='university'
-        :anchor='links.cosmos.community.discourse')
-      // card-community(
-        dt='IRC'
-        dd='Join #cosmos_network on irc.freenode.net.'
-        icon='hashtag'
-        :anchor='links.cosmos.community.irc')
-    part(title='Social Media'): .community-cards
-      card-community(
-        dt='Twitter'
-        dd='Follow @cosmos, our official account'
-        icon='twatter'
-        :anchor='links.cosmos.community.twitter')
-      // card-community(
-        dt='Facebook'
-        dd='Like the `cosmosproject` page.'
-        icon='footbook'
-        :anchor='links.cosmos.community.facebook')
-      card-community(
-        dt='Reddit'
-        dd='Subscribe to /r/cosmosnetwork'
-        icon='raddit'
-        :anchor='links.cosmos.community.reddit')
-      card-community(
-        dt='BitcoinTalk'
-        dd='Keep up with our thread on BitcoinTalk'
-        icon='bitcoin'
-        :anchor='links.cosmos.community.bitcointalk')
+    part(:title="text.communityUrlsTitle"): .community-cards
+      card-community(v-for="i in text.communityUrls"
+        :key="i.title"
+        :dt="i.title"
+        :icon="i.icon"
+        :anchor="i.href")
+    part(:title="text.socialMediaUrlsTitle"): .community-cards
+      card-community(v-for="i in text.socialMediaUrls"
+        :key="i.title"
+        :dt="i.title"
+        :icon="i.icon"
+        :anchor="i.href")
 </template>
 
 <script>
@@ -71,9 +41,7 @@ export default {
     FormEmailSignup,
     Part
   },
-  computed: {
-    ...mapGetters(['links'])
-  }
+  computed: { ...mapGetters(['text']) }
 }
 </script>
 
@@ -81,7 +49,7 @@ export default {
 @require '~variables'
 
 .app-footer__row
-  margin 0 1rem 0.25rem
+  margin 0 0 0.25rem
 
 .app-footer__row-actions
   .ni-part-main
@@ -99,6 +67,9 @@ export default {
 
 @media screen and (min-width: 768px)
   .app-footer__row
+    margin-left 1rem
+    margin-right 1rem
+
     display flex
     flex-flow row nowrap
 

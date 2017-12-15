@@ -1,9 +1,21 @@
 <template lang="pug">
-form.form-email-signup.validate.form(action='//network.us14.list-manage.com/subscribe/post?u=1b8aeaa81ca615914eb2eb7fc&id=64c73f9f5f', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='')
+form.form-email-signup.validate.form(
+  :action='config.mailchimpNewsletter'
+  method='post'
+  name='mc-embedded-subscribe-form'
+  target='_blank'
+  novalidate='')
 
-  field#mce-EMAIL(name='EMAIL', type='email', size='lg', placeholder='name@email.com')
+  field#mce-EMAIL(
+    name='EMAIL'
+    type='email'
+    size='lg'
+    placeholder='name@email.com')
 
-  btn#mc-embedded-subscribe(type='submit', icon='email', size='lg')
+  btn#mc-embedded-subscribe(
+    type='submit'
+    icon='email'
+    size='lg')
 
   // anti-bot signups
   div(style='position: absolute; left: -5000px;', aria-hidden='true')
@@ -11,13 +23,15 @@ form.form-email-signup.validate.form(action='//network.us14.list-manage.com/subs
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Btn from '@nylira/vue-button'
 import Field from '@nylira/vue-field'
 export default {
   components: {
     Btn,
     Field
-  }
+  },
+  computed: { ...mapGetters(['config']) }
 }
 </script>
 

@@ -1,33 +1,32 @@
 <template lang='pug'>
 .section-cover
   .section-cover__container
-    .section-cover__wordmark
-      img.section-cover__img(src="~assets/images/logos/cosmos-text.png")
-    .section-cover__tagline The interoperable, scalable, proof-of-stake blockchain network, built for developers.
+    .section-cover__logo
+      i.material-icons(v-if="text.coverIcon") {{ text.coverIcon }}
+      img(v-else src="~assets/images/logo-zone.png")
+    .section-cover__name {{ text.zoneName }}
+    .section-cover__tagline {{ text.zoneTagline }}
     .section-cover__action
       btn(
+        :href="text.coverBtn.href"
+        :value="text.coverBtn.value"
+        :icon="text.coverBtn.icon"
         type="anchor"
-        href="https://github.com/cosmos/cosmos-ui/releases/latest"
         size="lg"
-        icon="file_download"
-        target="_blank"
-        value="Download Wallet")
+        target="_blank")
     .section-cover__scroll
       btn(icon="arrow_downward" v-scroll-to="'#section-what'")
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Btn from '@nylira/vue-button'
 export default {
   name: 'section-cover',
   components: {
     Btn
   },
-  methods: {
-    scrollDown () {
-      console.log('scrolling down')
-    }
-  }
+  computed: { ...mapGetters(['config', 'text']) }
 }
 </script>
 
@@ -39,19 +38,40 @@ export default {
   width 100vw
   display flex
   margin-top -3rem
+  background app-fg
+  border-bottom 1px solid bc
 
 .section-cover__container
   flex 1
   margin-top 3rem
   padding 0 2rem
-  background url('~assets/images/backgrounds/home.jpg') center center
-  background-size cover
 
   display flex
   flex-flow column nowrap
   align-items center
   justify-content center
   position relative
+
+.section-cover__logo
+  margin-bottom 5vh
+
+  img
+    width 50vw
+    max-width 12rem
+    max-height 12rem
+
+  i.material-icons
+    font-size 8rem
+    color bright
+
+    width 12rem
+    height 12rem
+    border-radius 6rem
+    background link
+
+    display flex
+    align-items center
+    justify-content center
 
 .section-cover__scroll
   position absolute
@@ -61,77 +81,27 @@ export default {
 .section-cover__scroll .ni-btn
   shadow()
 
-.section-cover__wordmark
-  padding-top 17.5vh
+.section-cover__name
   display flex
   align-items center
+  font-size h1
+  font-weight 500
+  color bright
 
-.section-cover__img
-  width 60vw
+  margin-bottom 1.5vh
 
 .section-cover__tagline
   text-align center
   font-weight 300
   letter-spacing 0.025em
   line-height 2
-  text-shadow hsla(0,0,0,1) 0 0 0.5em
-
-  padding-top 5vh
+  color dim
   max-width 22em
 
+  margin-bottom 5vh
+
 .section-cover__action
-  padding-top 15vh
-
-.section-cover__action .ni-btn
-  shadow()
-
-@media screen and (min-width: 768px) and (orientation: portrait)
-  .section-cover__img
-    width 36vw
-
-@media screen and (orientation: landscape)
-  .section-cover__img
-    width 20vw
-
-@media screen and (min-width: 375px) and (min-height: 812px) and (orientation: portrait)
-  .section-cover__action
-    padding-top 20vh
-
-@media screen and (min-width: 414px)
-  .section-cover__tagline
-    font-size lg
-
-@media screen and (min-width: 768px)
-  .section-cover__wordmark
-    padding-top 12.5vh
-
-  .section-cover__container
-    padding 0 3rem
-
-@media screen and (min-width: 1024px)
-  .section-cover__tagline
-    padding-top 6.25vh
-
-@media screen and (min-height: 1024px)
-  .section-cover__tagline
-    font-size xl
-
-@media screen and (min-width: 1280px)
-  .section-cover__wordmark
-    padding-top 12vh
-
-@media screen and (min-width: 1440px)
-  .section-cover__wordmark
-    padding-top 10vh
-
-@media screen and (min-width: 1680px)
-  .section-cover__wordmark
-    padding-top 8vh
-
-@media screen and (min-width: 1920px)
-  .section-cover__wordmark
-    padding-top 6vh
-
-  .section-cover__img
-    width 24rem
+  padding-bottom 3rem
+  .ni-btn
+    shadow()
 </style>
