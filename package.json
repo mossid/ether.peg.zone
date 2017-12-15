@@ -1,15 +1,14 @@
 {
-  "name": "cosmos-network",
-  "version": "1.0.0",
-  "description": "The website for Cosmos, Internet of Blockchains",
+  "name": "cosmos-zone-website",
+  "version": "0.1.0",
+  "description": "The website template Cosmos Zones.",
   "author": "All In Bits, Inc.",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
     "build": "node build/build.js",
-    "lint": "eslint --ext .js,.vue src",
-    "toc": "doctoc --title '**Table of Contents**' content/en-US/FAQ.md"
+    "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
     "@nylira/vue-article-body": "3.5.0",

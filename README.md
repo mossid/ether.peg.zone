@@ -1,6 +1,6 @@
-# [cosmos.network](https://cosmos.network)
+# Cosmos Zone Website
 
-> The website for Cosmos, the Internet of Blockchains.
+> The website template for [Cosmos Zones](https://cosmos.network).
 
 ## Development
 
