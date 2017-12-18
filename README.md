@@ -1,6 +1,6 @@
-# Cosmos Zone Website Creator
+# Cosmos Zone Template 
 
-The website creator for [Cosmos Zones](https://cosmos.network).
+The website template for [Cosmos Zones](https://cosmos.network).
 
 ## 5 steps to your own Cosmos Zone website:
 
