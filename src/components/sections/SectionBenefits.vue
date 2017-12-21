@@ -93,7 +93,7 @@ export default {
 
   .cosmos-panel
     flex 1
-    flex-flow column nowrap
+    display block
     &:first-child
     &:last-child
       margin 1rem

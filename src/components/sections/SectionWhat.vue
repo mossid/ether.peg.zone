@@ -109,7 +109,7 @@ export default {
 
   .cosmos-diagram
     flex 1
-    flex-flow column nowrap
+    display block
 
   .cosmos-diagram__image
     display flex
