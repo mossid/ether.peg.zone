@@ -1,6 +1,6 @@
-# Cosmos Zone Template 
+# Cosmos Zone Website Creator
 
-The website template for [Cosmos Zones](https://cosmos.network).
+The website creator for [Cosmos Zones](https://cosmos.network).
 
 ## 5 steps to your own Cosmos Zone website:
 
@@ -8,7 +8,7 @@ The website template for [Cosmos Zones](https://cosmos.network).
 2. Run `yarn && yarn run dev`
 3. Edit the site config in `./src/store/modules/config.js`
 4. Edit the site text in `./src/store/modules/text.js`
-5. Run `yarn run build` and deploy the entire `./static` folder.
+5. Run `npm run build` and deploy the entire `./static` folder.
 
 ## Tips
 
