@@ -23,8 +23,6 @@ export default {
 .ni-panel-container
   margin 1rem 0
   background app-fg
-  display flex
-  flex-flow column nowrap
 
 .ni-panel__title
 .ni-panel__body
@@ -74,8 +72,6 @@ export default {
 
   .ni-panel-container
     margin 1rem
-    display flex
-    flex-flow column
 
   .ni-panel__image
     flex 1
