@@ -1,16 +1,16 @@
 const state = {
   // SECTION: Links
-  zoneGithub: 'https://github.com/REPLACEME',
-  zoneWebsiteGithub: 'https://github.com/REPLACEME',
+  zoneGithub: 'https://github.com/cosmos/peggy',
+  zoneWebsiteGithub: 'https://github.com/mossid/ether.peg.zone',
 
   // SECTION: Site
-  zoneName: 'COSMOS_ZONE',
-  zoneTagline: 'A super-awesome tagline for this zone. It\'s one of the best.',
+  zoneName: 'ETGate',
+  zoneTagline: 'A gateway between Ethereum and Tendermint',
   siteTitle: 'COSMOS_ZONE - A Cosmos Zone',
-  siteDescription: 'A description of this Cosmos Zone. This description is for use on the website (below the fold). Its also used for web search metadata. This text should be of a decent length, roughly 280 characters. More characters is okay. (REPLACEME)',
+  siteDescription: 'ETGate is a zone that any Cosmos zone can use to use ethers/ERC20s in them. Its 2-way peg design enables a secure & decentralized way to send assets from one chain to another',
 
   // SECTION: Cover
-  coverIcon: 'crop_free',
+  // coverIcon: '',
   // if coverIcon not set, the app will use the image located at
   // ./src/assets/images/logo-zone.png
 
@@ -18,19 +18,19 @@ const state = {
   benefitsTitle: 'Benefits of this Zone',
   benefits: [
     {
-      icon: 'mood',
-      title: 'Benefit 1 (REPLACEME)',
-      body: 'This is a really awesome benefit of this zone. (REPLACEME)'
+      icon: 'code',
+      title: 'Served as single sdk module',
+      body: 'Developers can simple include ETEnd module on their zone to use full features of ETGate'
     },
     {
-      icon: 'mood',
-      title: 'Benefit 2 (REPLACEME)',
-      body: 'This is a really awesome benefit of this zone. (REPLACEME)'
+      icon: 'compare_arrows',
+      title: '2-way peg design',
+      body: 'The funds are locked in the contract, no centralized authority can occupy them'
     },
     {
-      icon: 'mood',
-      title: 'Benefit 3 (REPLACEME)',
-      body: 'This is a really awesome benefit of this zone. (REPLACEME)'
+      icon: 'done_all',
+      title: 'IBC based token sending',
+      body: 'The tokens will be sent fast between the Cosmos zones'
     }
     /* {
       icon: 'mood',
