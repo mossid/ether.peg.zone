@@ -6,8 +6,8 @@ const state = {
   // SECTION: Site
   zoneName: 'Peggy',
   zoneTagline: 'A gateway between Ethereum and Tendermint',
-  siteTitle: 'COSMOS_ZONE - A Cosmos Zone',
-  siteDescription: 'ETGate is a zone that any Cosmos zone can use to use ethers/ERC20s in them. Its 2-way peg design enables a secure & decentralized way to send assets from one chain to another',
+  siteTitle: 'Peggy - A Cosmos Zone',
+  siteDescription: 'Peggy is a zone that any Cosmos zone can use to use ethers/ERC20s in them. Its 2-way peg design enables a secure & decentralized way to send assets from one chain to another',
 
   // SECTION: Cover
   // coverIcon: '',
@@ -20,7 +20,7 @@ const state = {
     {
       icon: 'code',
       title: 'Served as single sdk module',
-      body: 'Developers can simple include ETEnd module on their zone to use full features of ETGate'
+      body: 'Developers can simple include ETEnd module on their zone to use full features of Peggy'
     },
     {
       icon: 'compare_arrows',
