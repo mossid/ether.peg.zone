@@ -4,7 +4,7 @@ const state = {
   zoneWebsiteGithub: 'https://github.com/mossid/ether.peg.zone',
 
   // SECTION: Site
-  zoneName: 'ETGate',
+  zoneName: 'Peggy',
   zoneTagline: 'A gateway between Ethereum and Tendermint',
   siteTitle: 'COSMOS_ZONE - A Cosmos Zone',
   siteDescription: 'ETGate is a zone that any Cosmos zone can use to use ethers/ERC20s in them. Its 2-way peg design enables a secure & decentralized way to send assets from one chain to another',
