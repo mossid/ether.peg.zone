@@ -55,7 +55,7 @@
     "markdown-it": "8.4.0",
     "markdown-it-anchor": "4.0.0",
     "markdown-it-table-of-contents": "0.3.2",
-    "moment": "2.19.1",
+    "moment": "2.29.2",
     "nib": "1.1.2",
     "node-zopfli": "^2.0.2",
     "opn": "5.1.0",
